@@ -24,16 +24,26 @@ public class MainController {
 
     @GetMapping("/get-all")
     public List<UserDto> allUsers() {
-       return mainService.allUsers();
+        return mainService.allUsers();
     }
 
     @GetMapping("/get/{id}")
-    public UserDto getOne(@PathVariable("id") Long id) {
+    public UserDto getOne(@PathVariable Long id) {
         return mainService.getOne(id);
     }
 
     @PostMapping("/add")
-    public String addUser(@RequestBody User userDto) {
+    public String addUser(@RequestBody UserDto userDto) {
         return mainService.addUser(userDto);
+    }
+
+    @PostMapping("/update")
+    public String updateUser(@RequestBody UserDto userDto) {
+        return mainService.update(userDto);
+    }
+
+    @DeleteMapping("/delete")
+    public String delete(@RequestParam String login) {
+        return mainService.delete(login);
     }
 }

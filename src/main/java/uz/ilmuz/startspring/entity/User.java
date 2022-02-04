@@ -26,13 +26,22 @@ public class User {
     private String userName;
     private String role;
     private String password;
-    @Column(unique = true)
+    @Column(name = "login",unique = true)
     private String login;
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
 
     public User(UserDto userDto) {
+        this.userName = userDto.getUserName();
+        this.role = userDto.getRole();
+        this.password = userDto.getPassword();
+        this.login = userDto.getLogin();
+        this.email = userDto.getEmail();
+        this.phoneNumber = userDto.getPhoneNumber();
+    }
+
+    public void setUser(UserDto userDto){
         this.userName = userDto.getUserName();
         this.role = userDto.getRole();
         this.password = userDto.getPassword();

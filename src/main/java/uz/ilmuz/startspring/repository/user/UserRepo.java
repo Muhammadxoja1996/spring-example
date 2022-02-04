@@ -9,4 +9,5 @@ import uz.ilmuz.startspring.entity.User;
  * Time: 22:12
  */
 public interface UserRepo extends JpaRepository<User, Long> {
+    User findByLogin(String login);
 }

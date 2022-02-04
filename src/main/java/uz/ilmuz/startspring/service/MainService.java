@@ -41,10 +41,38 @@ public class MainService {
     }
 
 
-    public String addUser(User userDto) {
+    public String addUser(UserDto userDto) {
         String result = "ERROR";
         try {
-            userRepo.save(userDto);
+            userRepo.save(new User(userDto));
+            result = "SUCCESS";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return result;
+    }
+
+    public String update(UserDto userDto){
+
+        String result = "ERROR";
+        try {
+            User user = userRepo.findByLogin(userDto.getLogin());
+            user.setUser(userDto);
+            userRepo.save(user);
+            result = "SUCCESS";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return result;
+    }
+
+    public String delete(String login){
+        String result = "ERROR";
+        try {
+            User user = userRepo.findByLogin(login);
+            userRepo.delete(user);
             result = "SUCCESS";
         } catch (Exception e) {
             System.out.println(e.getMessage());
