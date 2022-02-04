@@ -34,7 +34,6 @@ public class MainService {
         return userDtos;
     }
 
-
     public UserDto getOne(Long id) {
         UserDto userDto = new UserDto(userRepo.findById(id).get());
         return userDto;
@@ -49,12 +48,10 @@ public class MainService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
         return result;
     }
 
     public String update(UserDto userDto){
-
         String result = "ERROR";
         try {
             User user = userRepo.findByLogin(userDto.getLogin());
@@ -64,7 +61,6 @@ public class MainService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
         return result;
     }
 
@@ -77,7 +73,6 @@ public class MainService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
         return result;
     }
 }
