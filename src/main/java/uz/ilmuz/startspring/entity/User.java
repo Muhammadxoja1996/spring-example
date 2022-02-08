@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import uz.ilmuz.startspring.dto.user.UserDto;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Author: Muhammadxo'ja
@@ -31,6 +32,10 @@ public class User {
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @OneToMany
+    @JoinColumn(name = "items")
+    private List<Item> items;
 
     public User(UserDto userDto) {
         this.userName = userDto.getUserName();
