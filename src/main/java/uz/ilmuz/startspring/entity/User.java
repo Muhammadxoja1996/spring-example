@@ -34,7 +34,7 @@ public class User {
     private String phoneNumber;
 
     @OneToMany
-    @JoinColumn(name = "items")
+    @JoinColumn(name = "user")
     private List<Item> items;
 
     public User(UserDto userDto) {
@@ -44,6 +44,10 @@ public class User {
         this.login = userDto.getLogin();
         this.email = userDto.getEmail();
         this.phoneNumber = userDto.getPhoneNumber();
+    }
+
+    public User(Long id) {
+        this.id = id;
     }
 
     public void setUser(UserDto userDto){
