@@ -22,6 +22,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_auth_sec")
     @SequenceGenerator(name = "user_auth_sec", sequenceName = "user_auth_sec", allocationSize = 1)
+    @Column(name = "user_id")
     private Long id;
     @Column(name = "user_name")
     private String userName;

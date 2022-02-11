@@ -3,6 +3,7 @@ package uz.ilmuz.startspring.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import uz.ilmuz.startspring.dto.user.ItemDto;
 
 import javax.persistence.*;
 
@@ -26,6 +27,21 @@ public class Item {
     private Integer item_price;
     private Long date;
 
+
+    public Item(ItemDto itemDto) {
+        this.item_amount = itemDto.getItem_amount();
+        this.item_name = itemDto.getItem_name();
+        this.item_price = itemDto.getItem_price();
+    }
+
+    public void setItem(ItemDto itemDto) {
+        this.item_amount = itemDto.getItem_amount();
+        this.item_name = itemDto.getItem_name();
+        this.item_price = itemDto.getItem_price();
+    }
+
     @ManyToOne
-    public User user_id;
+    @JoinTable(name = "user_id")
+    private User user_id;
+
 }

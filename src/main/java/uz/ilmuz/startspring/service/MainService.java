@@ -8,11 +8,6 @@ import uz.ilmuz.startspring.repository.user.UserRepo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Author: Muhammadxo'ja
- * Date: 03.02.2022
- * Time: 21:31
- */
 @Service
 public class MainService {
 

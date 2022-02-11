@@ -2,7 +2,6 @@ package uz.ilmuz.startspring.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import uz.ilmuz.startspring.dto.user.UserDto;
-import uz.ilmuz.startspring.entity.User;
 import uz.ilmuz.startspring.service.MainService;
 
 import java.util.List;
@@ -31,6 +30,7 @@ public class MainController {
     public UserDto getOne(@PathVariable Long id) {
         return mainService.getOne(id);
     }
+
 
     @PostMapping("/add")
     public String addUser(@RequestBody UserDto userDto) {
