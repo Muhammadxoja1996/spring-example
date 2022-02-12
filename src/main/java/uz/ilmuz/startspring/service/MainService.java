@@ -30,8 +30,7 @@ public class MainService {
     }
 
     public UserDto getOne(Long id) {
-        UserDto userDto = new UserDto(userRepo.findById(id).get());
-        return userDto;
+        return new UserDto(userRepo.findById(id).get());
     }
 
 
