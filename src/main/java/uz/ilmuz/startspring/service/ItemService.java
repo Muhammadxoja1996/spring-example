@@ -9,11 +9,6 @@ import uz.ilmuz.startspring.repository.user.ItemRepo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Author: Muhammadxo'ja
- * Date: 11.02.2022
- * Time: 21:07
- */
 @Service
 public class ItemService {
 

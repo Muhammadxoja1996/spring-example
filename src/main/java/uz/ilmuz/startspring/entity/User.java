@@ -8,11 +8,6 @@ import uz.ilmuz.startspring.dto.user.UserDto;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Author: Muhammadxo'ja
- * Date: 03.02.2022
- * Time: 22:03
- */
 @Entity
 @Table(name = "user_auth")
 @Data

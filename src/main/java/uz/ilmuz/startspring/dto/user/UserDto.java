@@ -6,11 +6,6 @@ import uz.ilmuz.startspring.entity.User;
 
 import java.util.List;
 
-/**
- * Author: Muhammadxo'ja
- * Date: 03.02.2022
- * Time: 22:10
- */
 @Data
 public class UserDto {
     private String userName;

@@ -6,11 +6,7 @@ import uz.ilmuz.startspring.entity.User;
 
 import javax.persistence.ManyToOne;
 
-/**
- * Author: Muhammadxo'ja
- * Date: 11.02.2022
- * Time: 21:13
- */
+
 @Data
 public class ItemDto {
     private Integer item_amount;

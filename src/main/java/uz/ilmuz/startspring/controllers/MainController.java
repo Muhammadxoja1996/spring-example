@@ -6,11 +6,6 @@ import uz.ilmuz.startspring.service.MainService;
 
 import java.util.List;
 
-/**
- * Author: Muhammadxo'ja
- * Date: 03.02.2022
- * Time: 21:29
- */
 @RestController
 @RequestMapping("/api/v1/user")
 public class MainController {

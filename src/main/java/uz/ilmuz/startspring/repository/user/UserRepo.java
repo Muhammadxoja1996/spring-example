@@ -4,11 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import uz.ilmuz.startspring.entity.User;
 
-/**
- * Author: Muhammadxo'ja
- * Date: 03.02.2022
- * Time: 22:12
- */
 public interface UserRepo extends JpaRepository<User, Long> {
     User findByLogin(String login);
 }
