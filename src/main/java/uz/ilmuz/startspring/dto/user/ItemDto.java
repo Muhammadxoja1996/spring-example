@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
  */
 @Data
 public class ItemDto {
+    private Long id;
     private Integer item_amount;
     private String item_name;
     private Integer item_price;
@@ -23,10 +24,11 @@ public class ItemDto {
     }
 
     public ItemDto(Item item) {
+        this.id = item.getId();
         this.item_amount = item.getItem_amount();
-        this.item_name = item.getItem_name();
+        this.item_name = item.getItemName();
         this.item_price = item.getItem_price();
         this.date = item.getDate();
-//        this.user_id = item.getUser_id().getId();
+        this.user_id = item.getUser_id();
     }
 }

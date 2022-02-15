@@ -1,6 +1,7 @@
 package uz.ilmuz.startspring.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uz.ilmuz.startspring.dto.user.UserDto;
 import uz.ilmuz.startspring.entity.User;
 import uz.ilmuz.startspring.repository.user.UserRepo;
@@ -14,11 +15,11 @@ import java.util.List;
  * Time: 21:31
  */
 @Service
-public class MainService {
+public class UserService {
 
     public final UserRepo userRepo;
 
-    public MainService(UserRepo userRepo) {
+    public UserService(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
 
@@ -63,11 +64,11 @@ public class MainService {
         return result;
     }
 
+    @Transactional
     public String delete(String login){
         String result = "ERROR";
         try {
-            User user = userRepo.findByLogin(login);
-            userRepo.delete(user);
+            userRepo.deleteByLogin(login);
             result = "SUCCESS";
         } catch (Exception e) {
             System.out.println(e.getMessage());

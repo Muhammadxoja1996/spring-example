@@ -10,4 +10,5 @@ import uz.ilmuz.startspring.entity.User;
  */
 public interface UserRepo extends JpaRepository<User, Long> {
     User findByLogin(String login);
+    long deleteByLogin(String login);
 }

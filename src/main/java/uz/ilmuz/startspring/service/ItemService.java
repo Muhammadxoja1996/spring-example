@@ -64,4 +64,15 @@ public class ItemService {
         }
         return result;
     }
+    @Transactional
+    public String delete(String item_name){
+        String result = "ERROR";
+        try {
+            itemRepo.deleteByItemName(item_name);
+            result = "SUCCESS";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
 }

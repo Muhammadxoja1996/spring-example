@@ -33,12 +33,17 @@ public class ItemController {
     }
 
     @PostMapping("/add")
-    public String addItem(@RequestBody ItemDto itemDto){
+    public String addItem(@RequestBody ItemDto itemDto) {
         return itemService.addItem(itemDto);
     }
 
     @PostMapping("/update")
-    public String update(@RequestBody ItemDto itemDto){
+    public String update(@RequestBody ItemDto itemDto) {
         return itemService.update(itemDto);
+    }
+
+    @DeleteMapping("/delete")
+    public String delete(@RequestParam String itemName) {
+        return itemService.delete(itemName);
     }
 }

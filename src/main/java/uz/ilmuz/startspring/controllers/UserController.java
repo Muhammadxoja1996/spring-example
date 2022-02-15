@@ -1,9 +1,12 @@
 package uz.ilmuz.startspring.controllers;
 
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.ilmuz.startspring.dto.user.UserDto;
-import uz.ilmuz.startspring.entity.User;
-import uz.ilmuz.startspring.service.MainService;
+import uz.ilmuz.startspring.service.CheckUser;
+import uz.ilmuz.startspring.service.UserService;
 
 import java.util.List;
 
@@ -14,17 +17,22 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/v1/user")
-public class MainController {
+public class UserController {
 
-    private final MainService mainService;
+    private final UserService mainService;
+    private final CheckUser checkUser;
 
-    public MainController(MainService mainService) {
+    public UserController(UserService mainService, CheckUser checkUser) {
         this.mainService = mainService;
+        this.checkUser = checkUser;
     }
 
     @GetMapping("/get-all")
-    public List<UserDto> allUsers() {
-        return mainService.allUsers();
+    public ResponseEntity<?> allUsers() {
+        if (checkUser.userCheck()){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        return ResponseEntity.ok(mainService.allUsers());
     }
 
     @GetMapping("/get/{id}")

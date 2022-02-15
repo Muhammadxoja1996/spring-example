@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Data
 public class UserDto {
+    private Long id;
     private String userName;
     private String role;
     private String password;
@@ -22,6 +23,7 @@ public class UserDto {
     private List<Item> items;
 
     public UserDto(User user) {
+        this.id = user.getId();
         this.userName = user.getUserName();
         this.role = user.getRole();
         this.password = user.getPassword();
