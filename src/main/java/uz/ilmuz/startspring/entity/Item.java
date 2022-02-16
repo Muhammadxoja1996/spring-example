@@ -18,28 +18,25 @@ public class Item {
     @SequenceGenerator(name = "items_auth_sec", sequenceName = "items_auth_sec", allocationSize = 1)
     private Long id;
     private Integer item_amount;
-    @Column(unique = true)
-    private String item_name;
+    @Column(name = "item_name",unique = true)
+    private String itemName;
     private Integer item_price;
     private Long date;
-    private Long user;
+    private Long user_id;
 
     public Item(ItemDto itemDto) {
         this.item_amount = itemDto.getItem_amount();
-        this.item_name = itemDto.getItem_name();
+        this.itemName = itemDto.getItem_name();
         this.item_price = itemDto.getItem_price();
         this.date = itemDto.getDate();
-        this.user = itemDto.getUser_id();
+        this.user_id = itemDto.getUser_id();
     }
 
     public void saveItemFields(ItemDto itemDto){
         this.item_amount = itemDto.getItem_amount();
-        this.item_name = itemDto.getItem_name();
+        this.itemName = itemDto.getItem_name();
         this.item_price = itemDto.getItem_price();
         this.date = itemDto.getDate();
-        this.user = itemDto.getUser_id();
+        this.user_id = itemDto.getUser_id();
     }
-//
-//    @ManyToOne
-//    public User user_id;
 }

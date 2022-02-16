@@ -30,7 +30,7 @@ public class User {
     private String phoneNumber;
 
     @OneToMany
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private List<Item> items;
 
     public User(UserDto userDto) {

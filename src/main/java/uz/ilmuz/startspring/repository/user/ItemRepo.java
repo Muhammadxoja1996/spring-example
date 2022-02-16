@@ -7,6 +7,8 @@ import uz.ilmuz.startspring.entity.Item;
 
 public interface ItemRepo extends JpaRepository<Item, Long> {
 
-    @Query("FROM Item e WHERE e.item_name = :name")
+    @Query("FROM Item e WHERE e.itemName = :name")
     Item item_name(@Param("name") String name);
+
+    long deleteByItemName(String itemName);
 }
